@@ -5,6 +5,9 @@
   align-items: center;
   position: absolute;
   width: 100%;
+
+  z-index: 5;
+
   .leftsect {
     width: 100px;
     height: 50px;
@@ -28,5 +31,16 @@
     list-style: none;
     display: flex;
     gap: 10px;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav {
+    .rightsect {
+      display: none;
+    }
+    .nav1 {
+      display: block;
+    }
   }
 }

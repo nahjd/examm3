@@ -6,12 +6,14 @@ const getData = async (req, res) => {
 };
 
 const getDelete = async (req, res) => {
-  let deleted = await User.findIdByAndDelete({ id: req.params._id });
+  let deleted = await User.findByIdAndDelete({ _id: req.params.id });
+  res.send(deleted);
 };
 
 const getPost = async (req, res) => {
   let newUser = await User(req.body);
-  newUser.save();
+  await newUser.save();
+  res.send(newUser);
 };
 
 module.exports = {
