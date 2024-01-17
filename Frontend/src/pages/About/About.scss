@@ -1,0 +1,30 @@
+.about {
+  //   border: 10px solid red;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.leftabout {
+  img {
+  }
+}
+.rightabout {
+  font-size: 25px;
+  margin-left: 65px;
+  //   border: 1px solid green;
+  width: 550px;
+  h4 {
+    font-size: 19px;
+    color: gray;
+  }
+  h1 {
+    margin-top: 15px;
+    color: black;
+    font-size: 28px;
+  }
+  span {
+    font-size: 19px;
+    color: gray;
+  }
+}

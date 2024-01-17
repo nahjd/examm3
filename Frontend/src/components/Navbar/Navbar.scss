@@ -1,0 +1,32 @@
+.nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  .leftsect {
+    width: 100px;
+    height: 50px;
+    border: 1px solid white;
+  }
+  h1 {
+    color: white;
+    text-align: center;
+  }
+  .rightsect {
+    color: white;
+  }
+  .nav1 {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  li {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+  }
+}

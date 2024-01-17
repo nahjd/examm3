@@ -1,0 +1,39 @@
+.hero {
+  background-image: url("./../../../public/images/photo1.webp");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  text-align: center;
+
+  .container {
+    h1 {
+      font-size: 45px;
+      color: white;
+    }
+  }
+  .button {
+    margin-top: 5px;
+    text-align: center;
+    width: 200px;
+    padding: 10px;
+
+    border: 1px solid white;
+    color: white;
+    font-size: 25px;
+    margin: 0 auto;
+  }
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 45px;
+}
