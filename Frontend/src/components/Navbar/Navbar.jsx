@@ -22,12 +22,22 @@ const Navbar = () => {
               >
                 <li>Home</li>
               </Link>
-              <li>Menu</li>
+              <Link style={{
+                color: "white",
+                border: "none",
+                textDecoration: "none",
+              }} to="/menu"> <li >Menu</li></Link>
               <li>Specialties</li>
               <li>Reservation</li>
               <li>Blog</li>
               <li>About</li>
               <li>Contact</li>
+              <Link style={{
+                backgroundColor: "black",
+                color: "orange",
+                border: "none",
+                textDecoration: "none",
+              }} to="/add"> <li >Add</li></Link>
               <Link
                 style={{
                   color: "white",

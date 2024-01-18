@@ -68,7 +68,7 @@ const Menu = () => {
             return (
               <>
                 <div className="menular">
-                  <div className="menus">
+                  {/* <div className="menus">
                     <div className="main1">
                       <div className="leftimg1">
                         <img
@@ -84,7 +84,7 @@ const Menu = () => {
                         <span>{elem.price}</span>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="menus">
                     <div className="main1">
                       <div className="leftimg1">

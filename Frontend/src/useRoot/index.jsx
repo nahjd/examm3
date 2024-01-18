@@ -5,6 +5,7 @@ const index = () => {
   return (
     <>
       <Navbar />
+      <Outlet />
     </>
   );
 };

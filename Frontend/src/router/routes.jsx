@@ -5,6 +5,7 @@ import Home from "../components/Home/Home";
 import Menu from "../components/Menu/Menu";
 import About from "../pages/About/About";
 import Navbar from "./../components/Navbar/Navbar";
+import Add from "../components/Add/Add";
 
 export const routes = [
   {
@@ -30,6 +31,10 @@ export const routes = [
       {
         path: "/basket",
         element: <Basket />,
+      },
+      {
+        path: "/add",
+        element: <Add />,
       },
     ],
   },
