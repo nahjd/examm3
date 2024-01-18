@@ -16,7 +16,7 @@ export const fetchData = createAsyncThunk("user/fetchData", async () => {
 });
 
 export const deleteData = createAsyncThunk("user/deleteData", async (id) => {
-  const response = await axios.delete("http://localhost:5050/meal", +id);
+  const response = await axios.delete(`http://localhost:5050/meal/${id}`);
 
   return response.data;
 });
@@ -79,21 +79,21 @@ export const mealsSlice = createSlice({
         state.error = action.error.message;
       });
 
-    builder
-      .addCase(deleteData.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(deleteData.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        console.log(action.payload);
-        state.data = state.data.filter(
-          (item) => item._id != action.payload._id
-        );
-      })
-      .addCase(deleteData.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
-      });
+    // builder
+    //   .addCase(deleteData.pending, (state) => {
+    //     state.status = "loading";
+    //   })
+    //   .addCase(deleteData.fulfilled, (state, action) => {
+    //     state.status = "succeeded";
+    //     console.log(action.payload);
+    //     state.data = state.data.filter(
+    //       (item) => item._id != action.payload._id
+    //     );
+    //   })
+    //   .addCase(deleteData.rejected, (state, action) => {
+    //     state.status = "failed";
+    //     state.error = action.error.message;
+    //   });
 
     builder
       .addCase(postData.pending, (state) => {

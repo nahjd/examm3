@@ -69,9 +69,10 @@ const Add = () => {
                             {errors.about && touched.about ? (
                                 <div>{errors.about}</div>
                             ) : null}
-                            <Field className="field" name="price" type="number" />
+                            <Field  className="field" name="price" type="number" />
                             {errors.price && touched.price ? <div>{errors.price}</div> : null}
-                            <Button className='btn' variant="contained">Add</Button>
+                            <Button type='sumbit'
+                             className='btn' variant="contained">Add</Button>
                         </Form>
                     )}
                 </Formik>
@@ -104,7 +105,11 @@ const Add = () => {
 
                                 >
                                     <Button onClick={() => {
-                                        dispatch(deleteData(row._id))
+                                        dispatch(deleteData(row._id)).then(()=>{
+                                            dispatch(fetchData())
+                                        })
+                                        console.log(row._id);
+
                                     }}
                                         variant="outlined" color="error">
                                         Delete
