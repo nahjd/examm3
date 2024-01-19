@@ -21,8 +21,8 @@ export const deleteData = createAsyncThunk("user/deleteData", async (id) => {
   return response.data;
 });
 
-export const postData = createAsyncThunk("user/postData", async (obj) => {
-  const response = await axios.post("http://localhost:5050/meal", obj);
+export const postData = createAsyncThunk("user/postData", async (item) => {
+  const response = await axios.post("http://localhost:5050/meal", item);
 
   return response.data;
 });
@@ -63,6 +63,25 @@ export const mealsSlice = createSlice({
       );
       console.log(state.basket);
     },
+
+    addWishlist: (state, action) => {
+      let found = state.wishlist.find((item) => {
+        item._id == action.payload._id;
+      });
+      if (found) {
+        state.wishlist = current(state.wishlist).filter((item) => {
+          item._id != action.payload._id;
+        });
+      } else {
+        state.wishlist = [...current(state.wishlist), action.payload];
+      }
+    },
+
+    deleteWishlist: (state, action) => {
+      state.wishlist = current(state.wishlist).filter((item) => {
+        item._id != action.payload._id;
+      });
+    },
   },
 
   extraReducers: (builder) => {
@@ -79,21 +98,21 @@ export const mealsSlice = createSlice({
         state.error = action.error.message;
       });
 
-    // builder
-    //   .addCase(deleteData.pending, (state) => {
-    //     state.status = "loading";
-    //   })
-    //   .addCase(deleteData.fulfilled, (state, action) => {
-    //     state.status = "succeeded";
-    //     console.log(action.payload);
-    //     state.data = state.data.filter(
-    //       (item) => item._id != action.payload._id
-    //     );
-    //   })
-    //   .addCase(deleteData.rejected, (state, action) => {
-    //     state.status = "failed";
-    //     state.error = action.error.message;
-    //   });
+    builder
+      .addCase(deleteData.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(deleteData.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        console.log(action.payload);
+        state.data = state.data.filter(
+          (item) => item._id != action.payload._id
+        );
+      })
+      .addCase(deleteData.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
 
     builder
       .addCase(postData.pending, (state) => {
@@ -112,6 +131,7 @@ export const mealsSlice = createSlice({
   },
 });
 
-export const { addBasket, deleteBasket } = mealsSlice.actions;
+export const { addBasket, deleteBasket, addWishlist, deleteWishlist } =
+  mealsSlice.actions;
 
 export default mealsSlice.reducer;

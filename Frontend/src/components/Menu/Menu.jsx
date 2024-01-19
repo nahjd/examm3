@@ -7,17 +7,23 @@ import {
   fetchData,
   addBasket,
   deleteBasket,
+  addWishlist,
+
 } from "../../redux/slices/mealSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FaShoppingBasket } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 
 const Menu = () => {
-  const dispatch = useDispatch();
   const data = useSelector((state) => state.meal.data);
+  const wishlist = useSelector((state) => state.meal.wishlist)
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
   console.log(data);
+  // console.log(wishlist);
 
   return (
     <>
@@ -68,23 +74,7 @@ const Menu = () => {
             return (
               <>
                 <div className="menular">
-                  {/* <div className="menus">
-                    <div className="main1">
-                      <div className="leftimg1">
-                        <img
-                          src="./../../../public/images/dessert-9.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="text10">
-                        <h1>{elem.name}</h1>
-                        <span>{elem.about}</span>
-                      </div>
-                      <div className="price">
-                        <span>{elem.price}</span>
-                      </div>
-                    </div>
-                  </div> */}
+
                   <div className="menus">
                     <div className="main1">
                       <div className="leftimg1">
@@ -104,6 +94,12 @@ const Menu = () => {
                         onClick={() => {
                           dispatch(addBasket(elem));
                         }}
+                        style={{ fontSize: "25px" }}
+                      />
+                      <FaRegHeart onClick={() => {
+                        dispatch(addWishlist(elem))
+                      }}
+
                         style={{ fontSize: "25px" }}
                       />
                     </div>

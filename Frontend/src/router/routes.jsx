@@ -6,6 +6,7 @@ import Menu from "../components/Menu/Menu";
 import About from "../pages/About/About";
 import Navbar from "./../components/Navbar/Navbar";
 import Add from "../components/Add/Add";
+import Wishlist from "../pages/Wishlist";
 
 export const routes = [
   {
@@ -31,6 +32,10 @@ export const routes = [
       {
         path: "/basket",
         element: <Basket />,
+      },
+      {
+        path: "/wishlist",
+        element: <Wishlist />,
       },
       {
         path: "/add",

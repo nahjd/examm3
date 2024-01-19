@@ -52,6 +52,18 @@ const Navbar = () => {
                   />
                 </li>
               </Link>
+              <Link
+                style={{
+                  color: "white",
+                  border: "none",
+                  textDecoration: "none",
+                }}
+                to="/wishlist"
+              >
+                <li>
+                  Wishlist
+                </li>
+              </Link>
             </ul>
           </div>
         </div>
